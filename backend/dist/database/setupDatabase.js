@@ -1,26 +1,15 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-import { Low, JSONFile } from 'lowdb';
-const adapter = new JSONFile('./src/database/database.json');
-const db = new Low(adapter);
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.db = void 0;
+const lowdb_1 = __importDefault(require("lowdb"));
+const FileSync_1 = __importDefault(require("lowdb/adapters/FileSync"));
+const adapter = new FileSync_1.default('database.json');
+exports.db = (0, lowdb_1.default)(adapter);
 function setupDatabase() {
-    return __awaiter(this, void 0, void 0, function* () {
-        yield db.read();
-        if (!db.data) {
-            console.log('yooo!');
-            db.data = { chatRooms: [] };
-            yield db.write();
-        }
-        console.log(db.data);
-        yield db.read();
-        return db;
-    });
+    exports.db.defaults({ chatRooms: [] }).write();
+    return exports.db;
 }
-export default setupDatabase;
+exports.default = setupDatabase;

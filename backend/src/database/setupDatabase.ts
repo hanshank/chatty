@@ -1,29 +1,16 @@
-import { Low, JSONFile } from 'lowdb';
+import low from 'lowdb'
+import FileSync from 'lowdb/adapters/FileSync';
+import { ChatRoom } from 'types';
 
-type ChatRoom = {
-  createdBy: string;
-  name: string;
-  id: string;
-}
-
-type Schema = {
+export type Schema = {
   chatRooms: ChatRoom[];
 }
 
-const adapter = new JSONFile<Schema>('./src/database/database.json');
-const db = new Low<Schema>(adapter);
+const adapter = new FileSync<Schema>('database.json')
+export const db = low(adapter)
 
-async function setupDatabase() {
-  await db.read();
-  
-  if (!db.data) {
-    console.log('yooo!');
-    db.data = { chatRooms: [] };
-    await db.write(); 
-  }
-
-  console.log(db.data);
-  await db.read();
+function setupDatabase() {
+  db.defaults({ chatRooms: []}).write();
 
   return db;
 }
