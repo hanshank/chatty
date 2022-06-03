@@ -1,4 +1,4 @@
-import { BehaviorSubject, combineLatest, tap } from "rxjs";
+import { BehaviorSubject, } from "rxjs";
 
 export type Message = {
   text: string;
@@ -7,13 +7,12 @@ export type Message = {
 
 export type Participant = {
   username: string;
+  id: string;
 }
 
 export const messages$ = new BehaviorSubject<Message[]>([]);
 
 export const participants$ = new BehaviorSubject<Participant[]>([]);
-
-// export const roomContent$ = combineLatest([participants$, messages$]).pipe(map(([participants, messages]) => ({ participants, messages })));
 
 export function updateMessages(payload: Message) {
   console.log('updating', payload);
@@ -22,5 +21,10 @@ export function updateMessages(payload: Message) {
 
 export function updateParticipants(payload: any) {
   const existingParticipants = participants$.value;
-  participants$.next([...existingParticipants, { username: payload.username }]);
+  participants$.next([...existingParticipants, { username: payload.username, id: payload.id }]);
+}
+
+export function removeInactiveParticipants(idsOfActiveParticipants: string[]) {
+  const onlineParticipants = participants$.getValue().filter(p => idsOfActiveParticipants.includes(p.id));
+  participants$.next(onlineParticipants);
 }

@@ -1,29 +1,14 @@
 {
   "chatRooms": [
     {
-      "name": "Room",
-      "id": "kM_2UnXBLmmy3jA3hSspx",
-      "createdBy": "Hans"
+      "name": "Dev Chat",
+      "id": "4TBcgVzohqziKWmlJUOM2",
+      "createdBy": ""
     },
     {
-      "name": "Main Room",
-      "id": "d8cnV06-TASe_MHzffYCO",
-      "createdBy": "Derek"
-    },
-    {
-      "name": "asfasfas",
-      "id": "fBNT-SZ1YRHNo59UcBwq0",
-      "createdBy": "safasf"
-    },
-    {
-      "name": "asfasf",
-      "id": "nTlHnCsl8WMQUfBEwI40e",
-      "createdBy": "asfasf"
-    },
-    {
-      "name": "Dudes",
-      "id": "zrhsrj6V5BHUXi1UvD_mw",
-      "createdBy": "Hans"
+      "name": "UX Hangout",
+      "id": "1S_HHBr0j_39OLD5G8cgk",
+      "createdBy": ""
     }
   ]
 }
