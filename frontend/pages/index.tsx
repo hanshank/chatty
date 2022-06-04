@@ -39,7 +39,7 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Kreatr Chat</h1>
+      <h1 className={styles.title}>Welcome To Chatty</h1>
 
       <Button
         size="normal"
