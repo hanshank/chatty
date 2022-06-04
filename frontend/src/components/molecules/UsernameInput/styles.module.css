@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 32px;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(121, 97, 139);
+}
+
+.content {
+  max-width: 320px;
+}
+
+.title {
+  color: white;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}

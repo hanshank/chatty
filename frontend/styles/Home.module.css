@@ -1,0 +1,20 @@
+.container {
+  padding: 0 2rem;
+}
+
+.title {
+  font-size: 32px;
+  font-size: 800;
+  color: rgb(121, 97, 139);
+}
+
+.createButton {
+  background: none;
+  font-size: 18px;
+  padding: 8px 16px;
+  border: 2px solid rgb(121, 97, 139);
+  color: rgb(121, 97, 139);
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+}

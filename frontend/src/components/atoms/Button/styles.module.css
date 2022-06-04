@@ -1,0 +1,27 @@
+.button {
+  position: relative;
+  background: rgb(43, 43, 43);
+  border: 2px solid rgb(43, 43, 43);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.button:disabled {
+  background: rgb(107, 107, 107);
+  color: rgb(163, 163, 163);
+}
+
+.outlineButton {
+  border: 2px solid rgb(121, 97, 139);
+  background: none;
+  color: rgb(121, 97, 139);
+}
+
+.fullWidth {
+  width: 100%;
+}

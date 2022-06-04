@@ -1,0 +1,29 @@
+.container {
+  padding: 24px;
+}
+
+.title {
+  color: rgb(121, 97, 139);
+}
+
+.chatWindow {
+  border: 1px solid rgb(121, 97, 139);
+  border-radius: 3px;
+  height: 275px;
+  padding: 4px
+}
+
+.participantsList {
+  border-radius: 3px;
+  border: 1px solid rgb(121, 97, 139);
+  height: 75px;
+  max-width: 375px;
+  margin-bottom: 16px;
+  overflow: scroll;
+  padding: 4px;
+}
+
+.message {
+  display: inline-block;
+}
+

@@ -1,0 +1,27 @@
+.editor {
+  margin-top: 8px;
+  min-height: 140px;
+  border: 1px solid rgb(121, 97, 139);
+  margin-bottom: 4px;
+}
+
+.toolbar {
+  padding: 4px;
+  background: rgb(121, 97, 139);
+}
+
+.toolbarButton {
+  margin-right: 4px;
+}
+
+.textArea {
+  padding: 4px;
+  min-height: 75px;
+  max-height: 75px;
+  overflow: scroll;
+  width: 100%;
+}
+
+.submitButtonWrapper {
+  margin: 0 4px 4px;
+}
