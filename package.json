@@ -1,0 +1,24 @@
+{
+  "name": "kreatr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
+    "setup": "concurrently \"cd backend && npm i\" \"cd frontend && npm i\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanshank/kreatrchat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanshank/kreatrchat/issues"
+  },
+  "homepage": "https://github.com/hanshank/kreatrchat#readme",
+  "dependencies": {
+    "concurrently": "^7.2.1"
+  }
+}
