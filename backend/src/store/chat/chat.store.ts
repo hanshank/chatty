@@ -1,4 +1,4 @@
-import { BehaviorSubject, } from "rxjs";
+import { BehaviorSubject, from, map, distinctUntilKeyChanged } from "rxjs";
 
 export type Message = {
   text: string;
@@ -10,21 +10,42 @@ export type Participant = {
   id: string;
 }
 
+export type ChatRooms = {
+  [id: string]: Participant[],
+}
+
+// TODO: Remove
 export const messages$ = new BehaviorSubject<Message[]>([]);
+
+const chatRooms$ = new BehaviorSubject<ChatRooms>({});
 
 export const participants$ = new BehaviorSubject<Participant[]>([]);
 
-export function updateMessages(payload: Message) {
-  console.log('updating', payload);
-  messages$.next([...messages$.getValue(), { text: payload?.text, username: payload?.username }]);
+export function getRoomParticipantsObservable(roomId: string) {
+  // TODO: not emitting on changes
+  const obs$ = chatRooms$.pipe(distinctUntilKeyChanged(roomId)).pipe(map(chatRooms => chatRooms[roomId] || []));
+
+  return obs$;
 }
 
-export function updateParticipants(payload: any) {
-  const existingParticipants = participants$.value;
-  participants$.next([...existingParticipants, { username: payload.username, id: payload.id }]);
+export function getRoomParticipantsIdsObservable(roomId: string) {
+  const obs$ = chatRooms$.pipe(distinctUntilKeyChanged(roomId)).pipe(map(chatRooms => chatRooms[roomId].map(participant => participant.id)));
+
+  return obs$;
 }
 
-export function removeInactiveParticipants(idsOfActiveParticipants: string[]) {
-  const onlineParticipants = participants$.getValue().filter(p => idsOfActiveParticipants.includes(p.id));
-  participants$.next(onlineParticipants);
+export function updateRoomParticipants(payload: { participant: Participant, roomId: string }) {
+  const existingRooms = chatRooms$.value;
+  const roomSpecificParticipants = existingRooms[payload.roomId] || [];
+
+  const newParticipant = { username: payload.participant.username, id: payload.participant.id };
+
+  chatRooms$.next({ ...existingRooms, [payload.roomId]: [...roomSpecificParticipants, newParticipant] });
+}
+
+export function removeInactiveParticipants(idsOfActiveParticipants: string[], roomId: string) {
+  const existingRooms = chatRooms$.getValue();
+  const onlineParticipantsInRoom = existingRooms[roomId].filter(p => idsOfActiveParticipants.includes(p.id));
+  
+  chatRooms$.next({ ...existingRooms, [roomId]: onlineParticipantsInRoom })
 }
