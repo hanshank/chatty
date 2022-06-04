@@ -23,10 +23,10 @@ In order to run locally, please follow the steps outlined below:
 
 ## Some notes
 
-I'm confident in my skills as an engineer/dev. I've never worked with RxJS before this and only ever dabbled with the basics of websockets. That's kinda the beauty of engineering though, to pick up something new over a few days and make something cool with it.
+I'm confident in my skills as an engineer/dev, but keep in mind I've never worked with RxJS before and only ever dabbled with the basics of websockets. That's kinda the beauty of engineering though, to pick up something new over a few days and make something cool with it.
 
 ## Disclaimer
 
-In my day to day job I focus on a high test coverage and also dealing with edge-cases and error handling in general. Be aware that there are probably some bugs that I've missed. If you experience something that stops you from running the app locally, please submit a new issue and tag me. I'd be happy to fix it. This might not be Netflix, but there are still patterns and workflows in there that I swear to on a regular basis, such as code abstraction, clean code architechture, separations of concerns and keeping things DRY (though I got lazy at the end - sorry pragmatic programmers...).
+In my day to day job I focus on a high test coverage and also dealing with edge-cases and error handling in general. This app doesn't have all of that. Be aware that there are probably some bugs that I've missed. If you experience something that stops you from running the app locally, please submit a new issue and tag me. I'd be happy to fix it. This might not be Netflix, but there are still patterns and workflows in there that I swear to on a regular basis, such as code abstraction, clean code architechture, separations of concerns and keeping things DRY (though I got lazy at the end - sorry pragmatic programmers...).
 
 Super open to get some feedback on how to take RxJS and WebSockets to the next level if anyone has feedback as well. Looking forward to it!
